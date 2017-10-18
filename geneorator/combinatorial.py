@@ -13,9 +13,9 @@ def combine(oligos, n_mutated=0, mutant_oligos=None, n_blocks=1):
     '''Design combinatorial assembly.'''
 
     # Assertion sanity checks:
-    assert(len(oligos) % 2 == 0)
-    assert(len(oligos) / n_blocks >= 2)
-    assert(mutant_oligos if n_mutated > 0 else True)
+    assert len(oligos) % 2 == 0
+    assert len(oligos) / n_blocks >= 2
+    assert mutant_oligos if n_mutated > 0 else True
 
     designs = []
 
@@ -46,13 +46,6 @@ def combine(oligos, n_mutated=0, mutant_oligos=None, n_blocks=1):
         designs.append(blocks)
 
     return designs
-
-
-def _pairwise(iterable):
-    '''s -> (s0,s1), (s1,s2), (s2, s3), ...'''
-    a, b = itertools.tee(iterable)
-    next(b, None)
-    return zip(a, b)
 
 
 def main(args):
